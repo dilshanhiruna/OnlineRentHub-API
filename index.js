@@ -6,7 +6,7 @@ exp.use(express.json());
 mongoose.set("strictQuery", false);
 
 const BASE_URL =
-  "mongodb+srv://Avizh:983102018@renterhub.amwbzwu.mongodb.net/?retryWrites=true&w=majority";
+  process.env.MONGODB_URI || "mongodb://localhost:27017/rent-hub";
 
 mongoose
   .connect(BASE_URL, {
@@ -27,4 +27,3 @@ mongoose
 exp.listen(port, () => {
   console.log(`Rent-Hub Server Started..`);
 });
-
